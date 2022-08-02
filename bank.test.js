@@ -14,5 +14,12 @@ describe('Bank', () => {
       bank.depositFunds(10);
       expect(bank.printStatement()).toEqual(20);
     })
+
+    it('generates a transaction', () => {
+      const bank = new Bank;
+      bank.depositFunds(10);
+      bank.generateTransaction()
+      expect(bank.transaction).toEqual('|| || 10.00 || || 10.00');
+    })
   })
 })
