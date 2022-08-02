@@ -1,11 +1,15 @@
 class Bank {
 
-  depositFunds() {
-    
+  constructor() {
+    this.balance = 0;
+  }
+
+  depositFunds(funds) {
+    this.balance += funds;
   }
 
   printStatement() {
-    return 10;
+    return this.balance;
   }
 
 }
