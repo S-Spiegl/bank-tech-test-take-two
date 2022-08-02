@@ -1,8 +1,9 @@
 class Bank {
 
-  constructor(transaction) {
+  constructor(transaction, statement) {
     this.balance = 0;
     this.transaction = transaction;
+    this.statement = statement;
   }
 
   depositFunds(funds) {
@@ -16,6 +17,10 @@ class Bank {
 
   generateTransaction() {
     this.transaction =  '|| || 10.00 || || 10.00';
+  }
+
+  printHeader() {
+    return this.statement.printHeader()
   }
 
 }

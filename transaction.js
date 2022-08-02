@@ -1,8 +1,13 @@
 class Transaction {
 
-  createTransaction(amount) {
+  createTransaction(deposit, withdrawal) {
     
-      return `|| || ${amount.toFixed(2)} || || ${amount.toFixed(2)}`
+      if(deposit != 0){
+        return `|| || ${deposit.toFixed(2)} || || ${deposit.toFixed(2)}`
+      }
+      else{
+        return `|| || || ${withdrawal.toFixed(2)} || ${deposit.toFixed(2)}`
+      }
   
     
   }

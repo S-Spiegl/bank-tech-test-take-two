@@ -1,4 +1,8 @@
 const Bank = require('./bank')
+const Transaction = require('./transaction')
+const Statement = require('./statement')
+jest.mock('./transaction')
+jest.mock('./statement')
 
 describe('Bank', () => {
   describe('depositFunds', () => {
@@ -20,6 +24,14 @@ describe('Bank', () => {
       bank.depositFunds(10);
       bank.generateTransaction()
       expect(bank.transaction).toEqual('|| || 10.00 || || 10.00');
+    })
+
+    it('prints a header', () => {
+      const mockStatement = new Statement;
+      const mockTransaction = new Transaction;
+      mockStatement.printHeader.mockImplementation(() => {return 'date || credit || debit || balance'})
+      const bank = new Bank(mockTransaction, mockStatement);
+      expect(bank.printHeader()).toEqual('date || credit || debit || balance')
     })
   })
 })
