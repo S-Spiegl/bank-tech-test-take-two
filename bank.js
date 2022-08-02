@@ -1,22 +1,28 @@
 class Bank {
 
   constructor(transaction, statement) {
-    this.balance = 0;
+    this.deposit = 0;
+    this.withdrawal = 0;
     this.transaction = transaction;
     this.statement = statement;
   }
 
   depositFunds(funds) {
-    this.balance += funds;
-    this.generateTransaction(funds)
+    this.deposit += funds;
+    this.generateTransaction(this.deposit, this.withdrawal)
+  }
+
+  withdrawFunds(funds) {
+    this.withdrawal -= funds;
+    this.generateTransaction(this.deposit, this.withdrawal)
   }
 
   printStatement() {
     return this.balance;
   }
 
-  generateTransaction() {
-    this.transaction =  '|| || 10.00 || || 10.00';
+  generateTransaction(deposit, withdrawal, balance) {
+    this.transaction.createTransaction(deposit, withdrawal, balance);
   }
 
   printHeader() {

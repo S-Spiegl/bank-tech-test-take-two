@@ -7,23 +7,40 @@ jest.mock('./statement')
 describe('Bank', () => {
   describe('depositFunds', () => {
     it('allows a user to add funds', () => {
-      const bank = new Bank;
+      const transaction = new Transaction;
+      const statement = new Statement;
+      const bank = new Bank(transaction, statement);
       bank.depositFunds(10);
-      expect(bank.printStatement()).toEqual(10);
+      // expect(bank.printStatement()).toEqual(10);
+      expect(bank.deposit).toEqual(10);
     }) 
     
     it('allows a user to add funds twice', () => {
-      const bank = new Bank;
+      const transaction = new Transaction;
+      const statement = new Statement;
+      const bank = new Bank(transaction, statement);
       bank.depositFunds(10);
       bank.depositFunds(10);
-      expect(bank.printStatement()).toEqual(20);
+      // expect(bank.printStatement()).toEqual(20);
+      expect(bank.deposit).toEqual(20)
+    })
+
+    it.skip('allows a user to withdraw funds', () => {
+      const transaction = new Transaction;
+      const statement = new Statement;
+      const bank = new Bank(transaction, statement);
+      bank.depositFunds(10);
+      bank.withdrawFunds(5);
+      expect(bank.printStatement()).toEqual(5);
     })
 
     it.skip('generates a transaction', () => {
-      const bank = new Bank;
+      const transaction = new Transaction;
+      const statement = new Statement;
+      const bank = new Bank(transaction, statement);
       bank.depositFunds(10);
       bank.generateTransaction()
-      expect(bank.transaction).toEqual('|| || 10.00 || || 10.00');
+      expect(bank.transaction()).toEqual('|| || 10.00 || || 10.00');
     })
 
     it('prints a header', () => {
