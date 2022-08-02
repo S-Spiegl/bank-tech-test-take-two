@@ -1,12 +1,16 @@
 class Transaction {
+  
 
-  createTransaction(deposit, withdrawal) {
+  createTransaction(deposit, withdrawal, balance) {
+
+    const date = new Date();
+    const formattedDate = date.toLocaleDateString();
     
       if(deposit != 0){
-        return `|| || ${deposit.toFixed(2)} || || ${deposit.toFixed(2)}`
+        return `|| ${formattedDate} || ${deposit.toFixed(2)} || || ${balance.toFixed(2)}`
       }
       else{
-        return `|| || || ${withdrawal.toFixed(2)} || ${deposit.toFixed(2)}`
+        return `|| ${formattedDate} || || ${withdrawal.toFixed(2)} || ${balance.toFixed(2)}`
       }
   
     
