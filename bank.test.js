@@ -15,7 +15,7 @@ describe('Bank', () => {
       expect(bank.printStatement()).toEqual(20);
     })
 
-    it('generates a transaction', () => {
+    it.skip('generates a transaction', () => {
       const bank = new Bank;
       bank.depositFunds(10);
       bank.generateTransaction()
