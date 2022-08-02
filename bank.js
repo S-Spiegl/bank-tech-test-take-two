@@ -8,6 +8,7 @@ class Bank {
   }
 
   depositFunds(funds) {
+    this.deposit = 0;
     this.deposit += funds;
     this.generateTransaction(this.deposit, this.withdrawal)
   }

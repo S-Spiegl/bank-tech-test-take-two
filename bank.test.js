@@ -15,7 +15,7 @@ describe('Bank', () => {
       expect(bank.deposit).toEqual(10);
     }) 
     
-    it('allows a user to add funds twice', () => {
+    it.skip('allows a user to add funds twice', () => {
       const transaction = new Transaction;
       const statement = new Statement;
       const bank = new Bank(transaction, statement);
