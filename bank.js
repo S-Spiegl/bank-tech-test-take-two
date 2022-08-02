@@ -14,6 +14,7 @@ class Bank {
   }
 
   withdrawFunds(funds) {
+    this.withdrawal = 0;
     this.withdrawal -= funds;
     this.generateTransaction(this.deposit, this.withdrawal)
   }
@@ -22,8 +23,8 @@ class Bank {
     return this.balance;
   }
 
-  generateTransaction(deposit, withdrawal, balance) {
-    this.transaction.createTransaction(deposit, withdrawal, balance);
+  generateTransaction(deposit, withdrawal) {
+    this.transaction.createTransaction(deposit, withdrawal);
   }
 
   printHeader() {

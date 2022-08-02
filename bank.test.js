@@ -35,12 +35,18 @@ describe('Bank', () => {
     })
 
     it.skip('generates a transaction', () => {
+      //not sure why this test returns undefined. Works in node...
+      // const date = new Date();
+      // const formattedDate = date.toLocaleDateString();
+      // const mockTransaction = new Transaction;
+      // const mockStatement = new Statement;
+      // const bank = new Bank(mockTransaction, mockStatement);
+      // mockTransaction.createTransaction.mockImplementation(() => {return `|| ${formattedDate} || ${deposit.toFixed(2)} || || 10.00`})
       const transaction = new Transaction;
       const statement = new Statement;
       const bank = new Bank(transaction, statement);
       bank.depositFunds(10);
-      bank.generateTransaction()
-      expect(bank.transaction()).toEqual('|| || 10.00 || || 10.00');
+      expect(bank.transaction.transaction).toEqual('|| || 10.00 || || 10.00');
     })
 
     it('prints a header', () => {
