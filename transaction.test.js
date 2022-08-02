@@ -1,8 +1,8 @@
 const Transaction = require('./transaction')
 
 describe('Transaction', () => {
-  it('prints a header', () => {
+  it('returns a transaction', () => {
     const transaction = new Transaction;
-    expect(transaction.printHeader()).toEqual('date || credit || debit || balance')
-  })  
+    expect(transaction.createTransaction(10)).toEqual('|| || 10.00 || || 10.00')
+  })
 })

@@ -1,7 +1,10 @@
 class Transaction {
 
-  printHeader() {
-    return 'date || credit || debit || balance'
+  createTransaction(amount) {
+    
+      return `|| || ${amount.toFixed(2)} || || ${amount.toFixed(2)}`
+  
+    
   }
 
 }
