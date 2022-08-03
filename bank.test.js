@@ -35,7 +35,6 @@ describe('Bank', () => {
     })
 
     it('generates a transaction', () => {
-      //not sure why this test returns undefined. Works in node...
       const date = new Date();
       const formattedDate = date.toLocaleDateString();
       const mockTransaction = new Transaction;
@@ -57,14 +56,6 @@ describe('Bank', () => {
       const bank = new Bank(transaction, statement);
       bank.depositFunds(10);
       expect(bank.balance).toEqual(10);
-    })
-
-    it('prints a header', () => {
-      const mockStatement = new Statement;
-      const mockTransaction = new Transaction;
-      mockStatement.printHeader.mockImplementation(() => {return 'date || credit || debit || balance'})
-      const bank = new Bank(mockTransaction, mockStatement);
-      expect(bank.printHeader()).toEqual('date || credit || debit || balance')
     })
   })
 })

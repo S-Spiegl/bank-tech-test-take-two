@@ -13,6 +13,10 @@ class Statement {
     this.allTransactions.unshift(transaction)
   }
 
+  printStatement() {
+    return this.printHeader() + "\n" + this.allTransactions;
+  }
+
 }
 
 module.exports = Statement;
