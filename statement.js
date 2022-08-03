@@ -1,7 +1,7 @@
 class Statement {
 
-  constructor() {
-    // this.transaction = transaction;
+  constructor(transaction) {
+    this.transaction = transaction;
     this.allTransactions = []
   }
   
@@ -9,8 +9,8 @@ class Statement {
     return 'date || credit || debit || balance'
   }
 
-  pushStatement(transaction) {
-    this.allTransactions.unshift(transaction)
+  pushStatement() {
+    this.allTransactions.unshift(this.transaction.transaction[0])
   }
 
   printStatement() {
