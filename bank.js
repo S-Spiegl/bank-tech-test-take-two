@@ -1,7 +1,5 @@
 class Bank {
 
-  #balance = 0
-
   constructor(transaction, statement) {
     this.deposit = 0;
     this.withdrawal = 0;
@@ -32,6 +30,8 @@ class Bank {
   
   #generateTransaction(deposit, withdrawal, balance) {
     this.transaction.createTransaction(deposit, withdrawal, balance);
+    this.statement.pushStatement(this.transaction.transaction)
+    console.log(this.transaction.transaction)
   }
 }
 module.exports = Bank;

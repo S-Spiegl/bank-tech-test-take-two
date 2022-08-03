@@ -1,21 +1,21 @@
 class Statement {
 
-  constructor(transaction) {
-    this.transaction = transaction;
+  constructor() {
+    // this.transaction = transaction;
     this.allTransactions = []
   }
   
-  printHeader() {
+  #printHeader() {
     return 'date || credit || debit || balance'
   }
 
-  pushStatement() {
-    this.allTransactions.unshift(this.transaction.transaction[0])
+  pushStatement(transaction) {
+    this.allTransactions.unshift(transaction)
   }
 
   printStatement() {
     const mappedTransactions = this.allTransactions.join("\n")
-    return this.printHeader() + "\n" + mappedTransactions
+    return this.#printHeader() + "\n" + mappedTransactions
   }
 
 }
