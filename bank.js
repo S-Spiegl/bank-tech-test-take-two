@@ -1,5 +1,7 @@
 class Bank {
 
+  #balance = 0
+
   constructor(transaction, statement) {
     this.deposit = 0;
     this.withdrawal = 0;
@@ -10,22 +12,22 @@ class Bank {
 
   depositFunds(funds) {
     this.deposit = 0;
+    this.withdrawal = 0;
     this.deposit += funds;
     this.balance += funds;
-    this.generateTransaction(this.deposit, this.withdrawal, this.balance)
+    this.#generateTransaction(this.deposit, this.withdrawal, this.balance)
   }
 
   withdrawFunds(funds) {
     this.withdrawal = 0;
+    this.deposit = 0;
     this.withdrawal -= funds;
     this.balance -= funds;
-    this.generateTransaction(this.deposit, this.withdrawal, this.balance)
+    this.#generateTransaction(this.deposit, this.withdrawal, this.balance)
   }
   
-  generateTransaction(deposit, withdrawal, balance) {
+  #generateTransaction(deposit, withdrawal, balance) {
     this.transaction.createTransaction(deposit, withdrawal, balance);
-    //this creates a transaction in the transactions array in the the transaction class
-    //this is then accessed by statement to build a list of all transactions
   }
 }
 module.exports = Bank;

@@ -20,6 +20,9 @@ e.g.
 bank.depositFunds(10)
 statement.pushStatement(transaction.transaction)
 
+bank.withdrawFunds(5)
+statement.pushStatement(transaction.transaction)
+
 N.B you must run statement.pushStatement(transaction.transaction) after each deposit/withdrawal. The transaction class only holds one transaction at a time, so these need to be pushed to the list of transactions, held in the statement class, after each deposit/withdrawal.
 
 View statement:
@@ -29,8 +32,4 @@ to do...
 private/public classes
 mock all dependencies
 edge cases - negative funds, irregular inputs etc
-
-
-
-
-
+mock the date

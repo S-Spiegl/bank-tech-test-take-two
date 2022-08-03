@@ -15,11 +15,10 @@ class Transaction {
           this.transaction.push(`|| ${formattedDate} || ${deposit.toFixed(2)} || || ${balance.toFixed(2)}`)
       }
       else{
-          return `|| ${formattedDate} || || ${withdrawal.toFixed(2)} || ${balance.toFixed(2)}`
+          this.transaction = []
+          this.transaction.push(`|| ${formattedDate} || || ${withdrawal.toFixed(2)} || ${balance.toFixed(2)}`)
       }
-  
-    
-  }
+    }
 
 }
 
