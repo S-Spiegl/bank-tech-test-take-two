@@ -1,6 +1,22 @@
 # Bank Tech Test
 
-Instructions:
+### A practice tech-test, based upon the following specifications:
+
+#### Requirements
+````
+- You should be able to interact with your code via a REPL like IRB or Node. 
+- (You don't need to implement a command line interface that takes input from STDIN.)
+- Deposits, withdrawal.
+- Account statement (date, amount, balance) printing.
+- Data can be kept in memory (it doesn't need to be stored to a database or anything).
+````
+
+#### Approach
+
+I chose to split the problem into three classes initially: a bank class, a transaction class, and a statement class.
+The statement and transaction would be dependency-injected into the bank class to reduce coupling.  
+
+#### Instructions:
 
 ###### Install dependencies:
 ```npm install```
@@ -29,7 +45,3 @@ bank.withdrawFunds(5)
 ```
 bank.printStatement()
 ```
-
-to do...
-edge cases - irregular inputs etc
-mock the date
