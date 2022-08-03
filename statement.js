@@ -14,7 +14,8 @@ class Statement {
   }
 
   printStatement() {
-    return this.printHeader() + "\n" + this.allTransactions;
+    const mappedTransactions = this.allTransactions.join("\n")
+    return this.printHeader() + "\n" + mappedTransactions
   }
 
 }

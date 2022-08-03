@@ -11,27 +11,25 @@ describe('Bank', () => {
       const statement = new Statement;
       const bank = new Bank(transaction, statement);
       bank.depositFunds(10);
-      // expect(bank.printStatement()).toEqual(10);
       expect(bank.deposit).toEqual(10);
     }) 
     
-    it.skip('allows a user to add funds twice', () => {
+    it('allows a user to add funds twice', () => {
       const transaction = new Transaction;
       const statement = new Statement;
       const bank = new Bank(transaction, statement);
       bank.depositFunds(10);
       bank.depositFunds(10);
-      // expect(bank.printStatement()).toEqual(20);
-      expect(bank.deposit).toEqual(20)
+      expect(bank.balance).toEqual(20)
     })
 
-    it.skip('allows a user to withdraw funds', () => {
-      const transaction = new Transaction;
-      const statement = new Statement;
-      const bank = new Bank(transaction, statement);
+    it('allows a user to withdraw funds', () => {
+      const mockTransaction = new Transaction;
+      const mockStatement = new Statement;
+      const bank = new Bank(mockTransaction, mockStatement);
       bank.depositFunds(10);
       bank.withdrawFunds(5);
-      expect(bank.printStatement()).toEqual(5);
+      expect(bank.balance).toEqual(5);
     })
 
     it('generates a transaction', () => {
@@ -40,14 +38,8 @@ describe('Bank', () => {
       const mockTransaction = new Transaction;
       const mockStatement = new Statement;
       const bank = new Bank(mockTransaction, mockStatement);
-      // mockTransaction.createTransaction.mockImplementation(() => {return `|| ${formattedDate} || ${deposit.toFixed(2)} || || 10.00`})
-      // const transaction = new Transaction;
-      // const statement = new Statement;
-      // const bank = new Bank(transaction, statement);
       bank.depositFunds(10);
       expect(mockTransaction.createTransaction).toHaveBeenCalledWith(10, 0, 10);
-      // console.log(bank.transaction)
-      // expect(bank.transaction.transaction[0]).toEqual(`|| ${formattedDate} || 10.00 || || 10.00`);
     })
 
     it('increments the balance', () => {

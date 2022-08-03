@@ -8,19 +8,6 @@ describe('Statement', () => {
     expect(statement.printHeader()).toEqual('date || credit || debit || balance')
   }) 
 
-  // it.skip('prints a transaction', () => {
-  //   const date = new Date();
-  //   const formattedDate = date.toLocaleDateString();
-  //   const mockTransaction = new Transaction;
-  //   const statement = new Statement(mockTransaction);
-  //   mockTransaction.createTransaction.mockImplementation(() => {
-  //     return `|| ${formattedDate} || 10.00 || || 10.00`
-  //   })
-  //   statement.pushStatement()
-  //   expect(this.test).toEqual('hello')
-  //   // expect(statement.allTransactions[0]).toEqual(`|| ${formattedDate} || 10.00 || || 10.00`)
-  // })
-
   it('prints a transaction', () => {
     const date = new Date();
     const formattedDate = date.toLocaleDateString();
@@ -46,11 +33,11 @@ describe('Statement', () => {
     statement.pushStatement(mockTransaction.transaction[0])
     const mockTransactionTwo = {
       transaction: ([
-        `|| ${formattedDate} || 20.00 || || 10.00`
+        `|| ${formattedDate} || 20.00 || || 20.00`
       ]),
     }
     statement.pushStatement(mockTransactionTwo.transaction[0])
-    expect(statement.allTransactions[0]).toEqual(`|| ${formattedDate} || 20.00 || || 10.00`)
+    expect(statement.allTransactions[0]).toEqual(`|| ${formattedDate} || 20.00 || || 20.00`)
     expect(statement.allTransactions[1]).toEqual(`|| ${formattedDate} || 10.00 || || 10.00`)
   })
 
@@ -61,7 +48,7 @@ describe('Statement', () => {
     expect(statement.printHeader()).toEqual('date || credit || debit || balance')
   })
 
-  it('prints a header', () => {
+  it('prints a header and a transaction', () => {
     const date = new Date();
     const formattedDate = date.toLocaleDateString();
     const statement = new Statement;
@@ -72,5 +59,24 @@ describe('Statement', () => {
     }
     statement.pushStatement(mockTransaction.transaction[0])
     expect(statement.printStatement()).toEqual(`date || credit || debit || balance\n|| ${formattedDate} || 10.00 || || 10.00`)
+  })
+
+  it('prints a header and two transactions', () => {
+    const date = new Date();
+    const formattedDate = date.toLocaleDateString();
+    const statement = new Statement;
+    const mockTransaction = {
+      transaction: ([
+        `|| ${formattedDate} || 10.00 || || 10.00`
+      ]),
+    }
+    statement.pushStatement(mockTransaction.transaction[0])
+    const mockTransactionTwo = {
+      transaction: ([
+        `|| ${formattedDate} || 20.00 || || 20.00`
+      ]),
+    }
+    statement.pushStatement(mockTransactionTwo.transaction[0])
+    expect(statement.printStatement()).toEqual(`date || credit || debit || balance\n|| ${formattedDate} || 20.00 || || 20.00\n|| ${formattedDate} || 10.00 || || 10.00`)
   })
 })
