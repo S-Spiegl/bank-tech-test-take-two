@@ -49,5 +49,18 @@ describe('Bank', () => {
       bank.depositFunds(10);
       expect(bank.balance).toEqual(10);
     })
+    
+    it('prints a statement', () => {
+      const date = new Date();
+      const formattedDate = date.toLocaleDateString();
+      const mockTransaction = new Transaction;
+      const mockStatement = new Statement;
+      const bank = new Bank(mockTransaction, mockStatement);
+      bank.depositFunds(10);
+      bank.printStatement();
+      expect(mockStatement.printStatement).toHaveBeenCalled;
+    })
   })
 })
+
+

@@ -25,6 +25,10 @@ class Bank {
     this.balance -= funds;
     this.#generateTransaction(this.deposit, this.withdrawal, this.balance)
   }
+
+  printStatement() {
+    this.statement.printStatement()
+  }
   
   #generateTransaction(deposit, withdrawal, balance) {
     this.transaction.createTransaction(deposit, withdrawal, balance);

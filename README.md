@@ -33,3 +33,4 @@ private/public classes
 mock all dependencies
 edge cases - negative funds, irregular inputs etc
 mock the date
+check dependency injection 
