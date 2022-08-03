@@ -30,7 +30,8 @@ class Bank {
   
   #generateTransaction(deposit, withdrawal, balance) {
     this.transaction.createTransaction(deposit, withdrawal, balance);
-    this.statement.pushStatement(this.transaction.transaction)
+    // this.statement.pushStatement(this.transaction.transaction)
+    // this.printStatement()
     console.log(this.transaction.transaction)
   }
 }
