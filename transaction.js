@@ -1,8 +1,8 @@
 class Transaction {
 
-  // constructor() {
-  //   this.transaction = "";
-  // }
+  constructor() {
+    this.transaction = [];
+  }
   
 
   createTransaction(deposit, withdrawal) {
@@ -11,10 +11,11 @@ class Transaction {
     const formattedDate = date.toLocaleDateString();
     
       if(deposit != 0){
-        return `|| ${formattedDate} || ${deposit.toFixed(2)} || || 10.00`
+          this.transaction = []
+          this.transaction.push(`|| ${formattedDate} || ${deposit.toFixed(2)} || || 10.00`)
       }
       else{
-        return `|| ${formattedDate} || || ${withdrawal.toFixed(2)} || 10.00`
+          return `|| ${formattedDate} || || ${withdrawal.toFixed(2)} || 10.00`
       }
   
     

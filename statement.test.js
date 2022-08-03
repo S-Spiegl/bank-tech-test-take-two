@@ -8,7 +8,7 @@ describe('Statement', () => {
     expect(statement.printHeader()).toEqual('date || credit || debit || balance')
   }) 
 
-  it('prints a transaction', () => {
+  it.skip('prints a transaction', () => {
     const date = new Date();
     const formattedDate = date.toLocaleDateString();
     const mockTransaction = new Transaction;
@@ -17,21 +17,39 @@ describe('Statement', () => {
       return `|| ${formattedDate} || 10.00 || || 10.00`
     })
     statement.pushStatement()
-    expect(statement.statements[0]).toEqual(`date || credit || debit || balance\n|| ${formattedDate} || 10.00 || || 10.00`)
+    expect(this.test).toEqual('hello')
+    // expect(statement.allTransactions[0]).toEqual(`|| ${formattedDate} || 10.00 || || 10.00`)
   })
 
-  // it('prints two transactions', () => {
-  //   const date = new Date();
-  //   const formattedDate = date.toLocaleDateString();
-  //   const mockTransaction = new Transaction;
-  //   const statement = new Statement(mockTransaction);
-  //   mockTransaction.createTransaction.mockImplementation(() => {
-  //     return `|| ${formattedDate} || 10.00 || || 10.00`
-  //   })
-  //   const mockTransactionTwo = new Transaction;
-  //   mockTransactionTwo.createTransaction.mockImplementation(() => {
-  //     return `|| ${formattedDate} || 5.00 || || 20.00`
-  //   })
-  //   expect(statement.printStatement()).toEqual(`date || credit || debit || balance\n|| ${formattedDate} || 5.00 || || 20.00`)
-  // })
+  it('prints a transaction', () => {
+    const date = new Date();
+    const formattedDate = date.toLocaleDateString();
+    const statement = new Statement;
+    const mockTransaction = {
+      transaction: ([
+        `|| ${formattedDate} || 10.00 || || 10.00`
+      ]),
+    }
+    statement.pushStatement(mockTransaction.transaction[0])
+    expect(statement.allTransactions[0]).toEqual(`|| ${formattedDate} || 10.00 || || 10.00`)
+  })
+
+  it('prints two transactions', () => {
+    const date = new Date();
+    const formattedDate = date.toLocaleDateString();
+    const statement = new Statement;
+    const mockTransaction = {
+      transaction: ([
+        `|| ${formattedDate} || 10.00 || || 10.00`
+      ]),
+    }
+    statement.pushStatement(mockTransaction.transaction[0])
+    const mockTransactionTwo = {
+      transaction: ([
+        `|| ${formattedDate} || 20.00 || || 10.00`
+      ]),
+    }
+    statement.pushStatement(mockTransactionTwo.transaction[0])
+    expect(statement.allTransactions[0]).toEqual(`|| ${formattedDate} || 20.00 || || 10.00`)
+  })
 })
