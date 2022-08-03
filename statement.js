@@ -15,6 +15,7 @@ class Statement {
 
   printStatement() {
     const mappedTransactions = this.allTransactions.join("\n")
+    console.log(mappedTransactions)
     return this.#printHeader() + "\n" + mappedTransactions
   }
 
