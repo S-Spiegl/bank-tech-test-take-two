@@ -15,8 +15,4 @@ describe('Transaction', () => {
     transaction.createTransaction(0, 10, 20);
     expect(transaction.transaction[0]).toEqual(`|| ${formattedDate} || || 10.00 || 20.00`);
   })
-
-  it('uses the statement to update the balance', () => {
-    
-  })
 })

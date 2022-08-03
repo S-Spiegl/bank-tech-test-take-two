@@ -7,17 +7,17 @@ jest.mock('./statement')
 describe('Bank', () => {
   describe('depositFunds', () => {
     it('allows a user to add funds', () => {
-      const transaction = new Transaction;
-      const statement = new Statement;
-      const bank = new Bank(transaction, statement);
+      const mockTransaction = new Transaction;
+      const mockStatement = new Statement;
+      const bank = new Bank(mockTransaction, mockStatement);
       bank.depositFunds(10);
       expect(bank.deposit).toEqual(10);
     }) 
     
     it('allows a user to add funds twice', () => {
-      const transaction = new Transaction;
-      const statement = new Statement;
-      const bank = new Bank(transaction, statement);
+      const mockTransaction = new Transaction;
+      const mockStatement = new Statement;
+      const bank = new Bank(mockTransaction, mockStatement);
       bank.depositFunds(10);
       bank.depositFunds(10);
       expect(bank.balance).toEqual(20)
@@ -43,11 +43,20 @@ describe('Bank', () => {
     })
 
     it('increments the balance', () => {
-      const transaction = new Transaction;
-      const statement = new Statement;
-      const bank = new Bank(transaction, statement);
+      const mockTransaction = new Transaction;
+      const mockStatement = new Statement;
+      const bank = new Bank(mockTransaction, mockStatement);
       bank.depositFunds(10);
       expect(bank.balance).toEqual(10);
+    })
+
+    it('throws an error if a user tries to go into their overdraft', () => {
+      const mockTransaction = new Transaction;
+      const mockStatement = new Statement;
+      const bank = new Bank(mockTransaction, mockStatement);
+      expect(() => {
+        bank.withdrawFunds(10);
+      }).toThrow("Insufficient funds. You can withdraw £0");
     })
   })
 })

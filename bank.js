@@ -1,7 +1,5 @@
 class Bank {
 
-  #balance = 0
-
   constructor(transaction, statement) {
     this.deposit = 0;
     this.withdrawal = 0;
@@ -19,11 +17,14 @@ class Bank {
   }
 
   withdrawFunds(funds) {
+    if(this.balance > funds){
     this.withdrawal = 0;
     this.deposit = 0;
     this.withdrawal -= funds;
     this.balance -= funds;
     this.#generateTransaction(this.deposit, this.withdrawal, this.balance)
+    }
+    else {throw(`Insufficient funds. You can withdraw £${this.balance}`)}
   }
   
   #generateTransaction(deposit, withdrawal, balance) {
