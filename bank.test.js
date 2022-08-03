@@ -49,6 +49,14 @@ describe('Bank', () => {
       expect(bank.transaction.transaction).toEqual('|| || 10.00 || || 10.00');
     })
 
+    it('increments the balance', () => {
+      const transaction = new Transaction;
+      const statement = new Statement;
+      const bank = new Bank(transaction, statement);
+      bank.depositFunds(10);
+      expect(bank.balance).toEqual(10);
+    })
+
     it('prints a header', () => {
       const mockStatement = new Statement;
       const mockTransaction = new Transaction;
