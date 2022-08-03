@@ -2,14 +2,16 @@ class Statement {
 
   constructor(transaction) {
     this.transaction = transaction;
+    this.statements = []
   }
   
   printHeader() {
     return 'date || credit || debit || balance'
   }
 
-  printStatement() {
-    return `date || credit || debit || balance\n${this.transaction.createTransaction()}`
+  pushStatement() {
+    const transaction = `date || credit || debit || balance\n${this.transaction.createTransaction()}`
+    this.statements.push(transaction)
   }
 
 }
