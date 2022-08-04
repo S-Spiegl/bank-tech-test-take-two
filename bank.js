@@ -12,7 +12,7 @@ class Bank {
   }
 
   withdrawFunds(funds) {
-    if(this.balance > funds){
+    if(this.balance >= funds){
     this.balance -= funds;
     this.#generateTransaction(0, funds, this.balance)
     }
@@ -21,10 +21,10 @@ class Bank {
   
   #generateTransaction(deposit, withdrawal, balance) {
     this.transaction.logTransaction(deposit, withdrawal, balance);
+    this.statement.addTransactionToStatement(this.transaction.transaction);
   }
 
   printStatement() {
-    this.statement.addTransactionToStatement(this.transaction.transaction)
     return this.statement.printStatement() 
   }
 }
