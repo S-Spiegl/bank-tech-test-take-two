@@ -58,5 +58,14 @@ describe('Bank', () => {
         bank.withdrawFunds(10);
       }).toThrow("Insufficient funds. You can withdraw £0");
     })
+
+    it('throws an error if a user adds 0 or a negative number', () => {
+      const mockTransaction = new Transaction;
+      const mockStatement = new Statement;
+      const bank = new Bank(mockTransaction, mockStatement);
+      expect(() => {
+        bank.withdrawFunds(0);
+      }).toThrow("Enter a number greater than 0");
+    })
   })
 })
