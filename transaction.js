@@ -5,7 +5,7 @@ class Transaction {
   }
   
 
-  createTransaction(deposit, withdrawal, balance) {
+  logTransaction(deposit, withdrawal, balance) {
 
     const date = new Date();
     const formattedDate = date.toLocaleDateString();

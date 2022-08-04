@@ -11,7 +11,7 @@ describe('Bank', () => {
       const mockStatement = new Statement;
       const bank = new Bank(mockTransaction, mockStatement);
       bank.depositFunds(10);
-      expect(bank.deposit).toEqual(10);
+      expect(bank.balance).toEqual(10);
     }) 
     
     it('allows a user to add funds twice', () => {
@@ -39,7 +39,7 @@ describe('Bank', () => {
       const mockStatement = new Statement;
       const bank = new Bank(mockTransaction, mockStatement);
       bank.depositFunds(10);
-      expect(mockTransaction.createTransaction).toHaveBeenCalledWith(10, 0, 10);
+      expect(mockTransaction.logTransaction).toHaveBeenCalledWith(10, 0, 10);
     })
 
     it('increments the balance', () => {
