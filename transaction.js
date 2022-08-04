@@ -3,7 +3,6 @@ class Transaction {
   constructor() {
     this.transaction = [];
   }
-  
 
   logTransaction(deposit, withdrawal, balance) {
 
