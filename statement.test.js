@@ -17,7 +17,7 @@ describe('Statement', () => {
         `|| ${formattedDate} || 10.00 || || 10.00`
       ]),
     }
-    statement.pushStatement(mockTransaction.transaction[0])
+    statement.addTransactionToStatement(mockTransaction.transaction[0])
     expect(statement.allTransactions[0]).toEqual(`|| ${formattedDate} || 10.00 || || 10.00`)
   })
 
@@ -30,13 +30,13 @@ describe('Statement', () => {
         `|| ${formattedDate} || 10.00 || || 10.00`
       ]),
     }
-    statement.pushStatement(mockTransaction.transaction[0])
+    statement.addTransactionToStatement(mockTransaction.transaction[0])
     const mockTransactionTwo = {
       transaction: ([
         `|| ${formattedDate} || 20.00 || || 20.00`
       ]),
     }
-    statement.pushStatement(mockTransactionTwo.transaction[0])
+    statement.addTransactionToStatement(mockTransactionTwo.transaction[0])
     expect(statement.allTransactions[0]).toEqual(`|| ${formattedDate} || 20.00 || || 20.00`)
     expect(statement.allTransactions[1]).toEqual(`|| ${formattedDate} || 10.00 || || 10.00`)
   })
@@ -50,7 +50,7 @@ describe('Statement', () => {
         `|| ${formattedDate} || 10.00 || || 10.00`
       ]),
     }
-    statement.pushStatement(mockTransaction.transaction[0])
+    statement.addTransactionToStatement(mockTransaction.transaction[0])
     expect(statement.printStatement()).toEqual(`date || credit || debit || balance\n|| ${formattedDate} || 10.00 || || 10.00`)
   })
 
@@ -63,13 +63,13 @@ describe('Statement', () => {
         `|| ${formattedDate} || 10.00 || || 10.00`
       ]),
     }
-    statement.pushStatement(mockTransaction.transaction[0])
+    statement.addTransactionToStatement(mockTransaction.transaction[0])
     const mockTransactionTwo = {
       transaction: ([
         `|| ${formattedDate} || 20.00 || || 20.00`
       ]),
     }
-    statement.pushStatement(mockTransactionTwo.transaction[0])
+    statement.addTransactionToStatement(mockTransactionTwo.transaction[0])
     expect(statement.printStatement()).toEqual(`date || credit || debit || balance\n|| ${formattedDate} || 20.00 || || 20.00\n|| ${formattedDate} || 10.00 || || 10.00`)
   })
 })
