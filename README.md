@@ -34,7 +34,9 @@ const bank = new Bank(transaction, statement);
 
 ###### Deposit/withdraw funds:
 e.g. 
-```bank.depositFunds(10)```
+```
+bank.depositFunds(10)
+```
 or
 ```
 bank.withdrawFunds(5)

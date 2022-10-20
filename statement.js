@@ -4,7 +4,7 @@ class Statement {
     this.allTransactions = []
   }
   
-  printHeader() {
+  #printHeader() {
     return 'date || credit || debit || balance'
   }
 
@@ -14,7 +14,7 @@ class Statement {
 
   printStatement() {
     const mappedTransactions = this.allTransactions.join("\n")
-    return this.printHeader() + "\n" + mappedTransactions
+    return this.#printHeader() + "\n" + mappedTransactions
   }
 
 }

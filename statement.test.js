@@ -3,10 +3,10 @@ const Transaction = require('./transaction')
 jest.mock('./transaction')
 
 describe('Statement', () => {
-  it('prints a header', () => {
-    const statement = new Statement;
-    expect(statement.printHeader()).toEqual('date || credit || debit || balance')
-  }) 
+  // it('prints a header', () => {
+  //   const statement = new Statement;
+  //   expect(statement.printHeader()).toEqual('date || credit || debit || balance')
+  // }) 
 
   it('prints a transaction', () => {
     const date = new Date();
