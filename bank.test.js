@@ -12,6 +12,8 @@ describe('Bank', () => {
       const bank = new Bank(mockTransaction, mockStatement);
       bank.depositFunds(10);
       expect(bank.getBalance()).toEqual(10);
+      // expect(bank.printStatement().split('\n')[1].split(' ')[6]).toEqual(10);
+      //need to test printStatement() instead of getBalance() here and for all other instances
     }) 
     
     it('allows a user to add funds twice', () => {
