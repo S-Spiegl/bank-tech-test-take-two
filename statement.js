@@ -1,7 +1,9 @@
 class Statement {
 
+  #allTransactions
+
   constructor() {
-    this.allTransactions = []
+    this.#allTransactions = []
   }
   
   #printHeader() {
@@ -9,11 +11,11 @@ class Statement {
   }
 
   addTransactionToStatement(transaction) {
-    this.allTransactions.unshift(transaction)
+    this.#allTransactions.unshift(transaction)
   }
 
   printStatement() {
-    const mappedTransactions = this.allTransactions.join("\n")
+    const mappedTransactions = this.#allTransactions.join("\n")
     return this.#printHeader() + "\n" + mappedTransactions
   }
 

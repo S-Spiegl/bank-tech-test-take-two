@@ -11,7 +11,7 @@ describe('Bank', () => {
       const mockStatement = new Statement;
       const bank = new Bank(mockTransaction, mockStatement);
       bank.depositFunds(10);
-      expect(bank.balance).toEqual(10);
+      expect(bank.getBalance()).toEqual(10);
     }) 
     
     it('allows a user to add funds twice', () => {
@@ -20,7 +20,7 @@ describe('Bank', () => {
       const bank = new Bank(mockTransaction, mockStatement);
       bank.depositFunds(10);
       bank.depositFunds(10);
-      expect(bank.balance).toEqual(20)
+      expect(bank.getBalance()).toEqual(20)
     })
 
     it('allows a user to withdraw funds', () => {
@@ -29,7 +29,7 @@ describe('Bank', () => {
       const bank = new Bank(mockTransaction, mockStatement);
       bank.depositFunds(10);
       bank.withdrawFunds(5);
-      expect(bank.balance).toEqual(5);
+      expect(bank.getBalance()).toEqual(5);
     })
 
     it('generates a transaction', () => {
@@ -47,7 +47,7 @@ describe('Bank', () => {
       const mockStatement = new Statement;
       const bank = new Bank(mockTransaction, mockStatement);
       bank.depositFunds(10);
-      expect(bank.balance).toEqual(10);
+      expect(bank.getBalance()).toEqual(10);
     })
 
     it('throws an error if a user tries to go into their overdraft', () => {

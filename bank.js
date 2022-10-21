@@ -1,11 +1,13 @@
 class Bank {
 
   #balance;
+  #transaction;
+  #statement;
 
   constructor(transaction, statement) {
     this.#balance = 0
-    this.transaction = transaction;
-    this.statement = statement;
+    this.#transaction = transaction;
+    this.#statement = statement;
   }
 
   getBalance() {
@@ -19,10 +21,6 @@ class Bank {
   #decrementBalance(funds) {
     this.#balance -= funds;
   }
-
-  //in Ruby you'd use an attr_reader to prevent writing to the balance... JS just makes it
-  //open to all by default so need private functions wrapped in methods (e.g. setBalance) to prevent abuse
-  
 
   depositFunds(funds) {
     this.#incrementBalance(funds)
@@ -41,12 +39,12 @@ class Bank {
   }
   
   #generateTransaction(deposit, withdrawal, balance) {
-    this.transaction.logTransaction(deposit, withdrawal, balance);
-    this.statement.addTransactionToStatement(this.transaction.transaction);
+    this.#transaction.logTransaction(deposit, withdrawal, balance);
+    this.#statement.addTransactionToStatement(this.#transaction.transaction);
   }
 
-  // printStatement() {
-  //   return this.statement.printStatement() 
-  // }
+  printStatement() {
+    return this.#statement.printStatement() 
+  }
 }
 module.exports = Bank;

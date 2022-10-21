@@ -18,7 +18,7 @@ describe('Statement', () => {
       ]),
     }
     statement.addTransactionToStatement(mockTransaction.transaction[0])
-    expect(statement.allTransactions[0]).toEqual(`|| ${formattedDate} || 10.00 || || 10.00`)
+    expect(statement.printStatement().split('\n')[1]).toEqual(`|| ${formattedDate} || 10.00 || || 10.00`)
   })
 
   it('prints two transactions', () => {
@@ -37,8 +37,8 @@ describe('Statement', () => {
       ]),
     }
     statement.addTransactionToStatement(mockTransactionTwo.transaction[0])
-    expect(statement.allTransactions[0]).toEqual(`|| ${formattedDate} || 20.00 || || 20.00`)
-    expect(statement.allTransactions[1]).toEqual(`|| ${formattedDate} || 10.00 || || 10.00`)
+    expect(statement.printStatement().split('\n')[1]).toEqual(`|| ${formattedDate} || 20.00 || || 20.00`)
+    expect(statement.printStatement().split('\n')[2]).toEqual(`|| ${formattedDate} || 10.00 || || 10.00`)
   })
 
   it('prints a header and a transaction', () => {
